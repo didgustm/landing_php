@@ -1,0 +1,97 @@
+.mont{
+    font-family:vars.$mont
+}
+.theme-color{
+    color:vars.$theme
+}
+.theme-bg{
+    background-color:vars.$theme
+}
+
+.fix{
+    position:fixed
+}
+.ab{
+    position:absolute
+}
+.rel{
+    position:relative
+}
+
+.flex-default{
+    @include vars.flex();
+}
+.flex-center{
+    @include vars.flex(center, center)
+}
+.flex-between{
+    @include vars.flex(space-between, center)
+}
+
+.block{
+    display:block
+}
+.inline{
+    display:inline-block
+}
+
+.tc{
+    text-align:center
+}
+.tr{
+    text-align:right
+}
+.tl{
+    text-align:left
+}
+
+.light{
+    @include vars.weight(300)
+}
+.medium{
+    @include vars.weight(500)
+}
+.semi{
+    @include vars.weight(600)
+}
+.bold{
+    @include vars.weight(700)
+}
+
+.layer{
+    visibility:hidden;
+    opacity:0;
+    transition:opacity 0.6s;
+    z-index:-1;
+    &.show{
+        opacity:1;
+        .pop_cnt{
+            opacity:1;
+            transform:translate(0)
+        }
+    }
+}
+
+.blind{
+    font-size:0;
+    line-height:0;
+    text-indent:-999px
+}
+
+// motion
+*[class*=ts--]{
+    opacity:0
+}
+*[class*=--up]{
+    transform:translateY(50px)
+}
+.active *[class*=ts--]{
+    opacity:1;
+    transform:translate(0);
+    @include vars.transitionDefault(opacity, transform);
+}
+@for $i from 1 through 20{
+    .active *[class*=--#{$i}]{
+        transition-delay:#{$i*0.1}s
+    }
+}

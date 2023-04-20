@@ -1,0 +1,10 @@
+@use './variables' as vars;
+@import './font';
+@import './reset';
+@import './common';
+@import './pc_common';
+@import './form';
+
+section{
+    height:100vh
+}

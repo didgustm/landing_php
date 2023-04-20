@@ -1,0 +1,115 @@
+html,
+body{
+    font:400 16px/1 'NotoSansKR';
+    letter-spacing:-.035em
+}
+#wrap{
+    position:relative;
+    max-width:1200px;
+    font-size:1rem;
+    padding-top:10.75rem;
+    margin:0 auto;
+    word-break:keep-all
+}
+.inner{
+    max-width:43.75rem; // 700px
+    margin:0 auto;
+    padding:0 1.875rem
+}
+
+// header
+.header{
+    top:0;
+    left:50%;
+    width:100%;
+    max-width:1200px;
+    background:#fff;
+    z-index:99;
+    transform:translateX(-50%);
+    .top{
+        padding:1.4rem 0;
+        border-bottom:1px solid rgba(156,156,156,.39)
+    }
+    .logo{
+        font-size:2.4rem
+    }
+    ul{
+        @include vars.flex(space-between, center);
+        width:100%;
+        font-size:1.5rem;
+        padding:1.5rem 0;
+    }
+    li.active a{
+        color:vars.$theme
+    }
+    &.active{
+        box-shadow:0 0 15px rgba(0,0,0,.3);
+        animation:smoothScroll 1s ease forwards
+    }
+}
+
+@keyframes smoothScroll{
+    from{
+        transform:translate(-50%, -40px)
+    }
+    to{
+        transform:translate(-50%, 0)
+    }
+}
+
+// footer
+.footer{
+    background:#333;
+    color:#636363;
+    .inner{
+        padding:{
+            top:3.75rem;
+            bottom:3.75rem
+        }
+    }
+    .foot_top{
+        align-items:flex-start;
+        font-size:1.125rem;
+        line-height:1.5;
+        dl{
+            width:48%
+        }
+        dt{
+            margin-bottom:1.5625rem
+        }
+    }
+    .btns{
+        margin-top:2.8125rem;
+        flex-wrap:nowrap;
+        a{
+            width:18rem;
+            height:4.6875rem;
+            color:#464646;
+            background:#f3f3f3;
+            font-size:1.4375rem;
+            border-radius:0.625rem;
+            margin:0 1rem
+        }
+    }
+    .copy{
+        margin-top:2.5rem;
+        font-size:1.25rem
+    }
+}
+
+@media (max-width:640px){
+    html,
+    body{font-size:13px}
+}
+@media (max-width:500px){
+    html,
+    body{font-size:12px}
+}
+@media (max-width:400px){
+    html,
+    body{font-size:10px}
+}
+@media (max-width:300px){
+    html,
+    body{font-size:9px}
+}

@@ -1,0 +1,161 @@
+// layout
+html,
+body{
+    font:400 16px/1 'NotoSansKR';
+    letter-spacing:-.035em
+}
+#wrap{
+    position:relative;
+    min-width:1420px;
+    padding-top:100px
+}
+.inner{
+    width:1200px;
+    margin:0 auto
+}
+
+// header
+.header{
+    top:0;
+    left:0;
+    right:0;
+    height:100px;
+    background:#fff;
+    z-index:99;
+    .inner{
+        height:100%
+    }
+    li{
+        font-size:17px;
+        &:not(:first-child){
+            margin-left:90px
+        }
+        &.active a,
+        a:hover{
+            color:vars.$theme
+        }
+    }
+    &.active{
+        box-shadow:0 0 15px rgba(0,0,0,.3);
+        animation:smoothScroll 1s ease forwards
+    }
+}
+
+@keyframes smoothScroll{
+    from{
+        transform:translateY(-40px)
+    }
+    to{
+        transform:translateY(0)
+    }
+}
+
+// quick
+.quick{
+    right:100px;
+    bottom:50px;
+    width:180px;
+    height:180px;
+    z-index:98;
+    @include vars.transitionDefault(opacity);
+    button{
+        @include vars.circle(100%);
+        background:vars.$theme
+    }
+    &.hide{
+        opacity:0;
+        z-index:-1
+    }
+}
+
+@media (min-width:1920px){
+    .quick{
+        right:calc(50% - 800px)
+    }
+}
+@media (max-width:1420px){
+    .quick{
+        position:absolute;
+        top:0
+    }
+}
+
+// footer
+.footer{
+    background:#333;
+    font-size:15px;
+    color:#959595;
+    .inner{
+        padding:100px 70px 65px;
+        line-height:24px;
+    }
+    .foot_top{
+        align-items:flex-start;
+        margin-bottom:70px
+    }
+    dt{
+        margin-bottom:25px
+    }
+    dd{
+        white-space:pre-line
+    }
+    .copy{
+        color:#b7b7b7
+    }
+    .privacy button{
+        width:170px;
+        height:45px;
+        background:#000;
+        padding-left:20px;
+        color:#fff
+    }
+}
+
+// privacy
+#privacyPop{
+    .pop_cnt{
+        width:450px;
+        height:600px;
+        color:#111;
+        padding:10px 0;
+        @include vars.border(#888);
+        overflow:hidden
+    }
+    .pri_top{
+        padding:15px 20px
+    }
+    .pri_cnt{
+        height:calc(100% - 50px);
+        white-space:pre-line;
+        color:#333;
+        padding:10px 20px;
+        line-height:25px;
+        overflow-y:auto;
+    }
+    .close{
+        top:-27px;
+        right:0
+    }
+}
+
+// popup
+.layer{
+    bottom:0;
+    right:0;
+    left:0;
+    top:0;
+    background:rgba(0,0,0,.3);
+    .overlay{
+        width:100%;
+        height:100%;
+        padding:50px
+    }
+    .pop_cnt{
+        background:#fff;
+        border-radius:25px;
+        box-shadow:10px 10px 10px rgba(0,0,0,.1);
+        opacity:0;
+        transform:translateY(80px);
+        @include vars.transitionDefault(opacity, transform);
+    }
+}

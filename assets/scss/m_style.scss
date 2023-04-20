@@ -1,0 +1,9 @@
+@use './variables' as vars;
+@import './font';
+@import './reset';
+@import './common';
+@import './m_common';
+
+section{
+    height:100vh
+}

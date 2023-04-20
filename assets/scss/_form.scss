@@ -1,0 +1,83 @@
+.form{
+    width:530px;
+    li{
+        margin-bottom:10px
+    }
+    .input{
+        width:100%;
+        height:60px;
+        background:#fff;
+        border-radius:10px;
+        border:1px solid #ddd;
+        z-index:1;
+        input,
+        select{
+            width:100%;
+            height:100%;
+            padding:18px 20px 0
+        }
+        select{
+            background:url(//d3b5puofryrsme.cloudfront.net/1pro/icon_select.png) no-repeat 95% 50%
+        }
+        .plc{
+            top:22px;
+            left:20px;
+            color:#666;
+            transform-origin:0 0;
+            transition:transform 0.4s;
+            z-index:-1;
+            &.up{
+                transform:translateY(-13px) scale(0.8)
+            }
+        }
+    }
+    .uname{
+        width:225px
+    }
+    .utel{
+        width:295px
+    }
+    .unum{
+        width:350px
+    }
+    .btn_num{
+        width:170px;
+        height:60px;
+        background:#000;
+        color:#fff;
+        border-radius:10px
+    }
+    .agree{
+        padding:10px 0 30px;
+        border-bottom:1px solid #ddd;
+        margin-bottom:30px;
+        label{
+            cursor:pointer;
+            user-select:none
+        }
+        .checkbox{
+            width:30px;
+            height:30px;
+            background:#fff url(//d3b5puofryrsme.cloudfront.net/1pro/icon_check.png) no-repeat 50% 300%;
+            border:1px solid #ddd;
+            border-radius:5px;
+            margin-right:10px
+        }
+        input:checked+.checkbox{
+            background-position-y:50%
+        }
+    }
+    .submit{
+        width:100%;
+        height:70px;
+        color:#fff;
+        font-size:24px;
+        background:#000;
+        border-radius:10px;
+        @include vars.transitionDefault(all);
+        &:hover{
+            transform:translateY(-5px);
+            box-shadow:0 5px 10px rgba(0,0,0,.3)
+        }
+    }
+}

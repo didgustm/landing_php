@@ -1,0 +1,52 @@
+$mont: 'mont';
+$theme: #782fff;
+
+@mixin flex($w:flex-start, $h:flex-start, $dir:row, $wrap:wrap){
+    display:flex;
+    justify-content:$w;
+    align-items: $h;
+    flex-flow:$dir $wrap
+}
+
+@mixin pseudo($w, $h, $type:position){
+    content:"";
+    @if($type == position){
+        position:absolute
+    } @else if($type == block){
+        display:block
+    }
+    width:$w;
+    height:$h
+}
+
+@mixin circle($r){
+    width:$r;
+    height:$r;
+    border-radius:50%
+}
+
+@mixin border($color, $w:1px, $style:solid){
+    border:$w $style $color
+}
+
+@mixin ellipsis($w){
+    max-width:$w;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden
+}
+
+@mixin transitionDefault($properties...){
+    $transition: ();
+    $willChange: ();
+    @each $property in $properties {
+        $transition: append($transition, $property 0.6s ease, $separator: comma);
+        $willChange: append($willChange, $property, $separator: comma);
+    }
+    transition: $transition;
+    will-change: $willChange;
+}
+
+@mixin weight($wght:400){
+    font-variation-settings:'wght' $wght
+}
